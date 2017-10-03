@@ -11,7 +11,7 @@ namespace AlgorithmTrickeryTests
         [TestMethod]
         public void PartitionTest()
         {
-            int [] testArrayLengths = new int[] { 1, 10, 100, 999 };
+            int [] testArrayLengths = new int[] { 1, 10, 100, 999};
             int[] seeds = new int[] { 1, 54353, 6363, 756757 };
             /*
                 Instantiate and seed random number generator within

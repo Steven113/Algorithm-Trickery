@@ -33,8 +33,8 @@ namespace AlgorithmTrickery
                 T pivotVal = array[pivot];
 
                 //put pivot at end
-                T temp = array[end - 1];
-                array[end - 1] = array[pivot];
+                T temp = array[0];
+                array[0] = array[pivot];
                 array[pivot] = temp;
 
                 /*
@@ -73,16 +73,18 @@ namespace AlgorithmTrickery
                         won't have to be swapped again
                     */
                     {
+                        ++q;
+
                         T swapItem = array[j];
                         array[j] = array[q];
                         array[q] = swapItem;
                         
-                        ++q;
+                        
                     }
                 }
                 
-                temp = array[end - 1];
-                array[end - 1] = array[q];
+                temp = array[0];
+                array[0] = array[q];
                 array[q] = temp;
                 
 
