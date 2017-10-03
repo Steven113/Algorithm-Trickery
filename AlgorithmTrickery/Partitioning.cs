@@ -33,8 +33,8 @@ namespace AlgorithmTrickery
                 T pivotVal = array[pivot];
 
                 //put pivot at end
-                T temp = array[0];
-                array[0] = array[pivot];
+                T temp = array[start];
+                array[start] = array[pivot];
                 array[pivot] = temp;
 
                 /*
@@ -83,8 +83,8 @@ namespace AlgorithmTrickery
                     }
                 }
                 
-                temp = array[0];
-                array[0] = array[q];
+                temp = array[start];
+                array[start] = array[q];
                 array[q] = temp;
                 
 

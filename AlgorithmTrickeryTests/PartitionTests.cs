@@ -9,7 +9,7 @@ namespace AlgorithmTrickeryTests
     public class PartitionTests
     {
         [TestMethod]
-        public void PartitionTest()
+        public void PartitionTestWholeArray()
         {
             int [] testArrayLengths = new int[] { 1, 10, 100, 999};
             int[] seeds = new int[] { 1, 54353, 6363, 756757 };
@@ -43,6 +43,51 @@ namespace AlgorithmTrickeryTests
                     for (int i = pivot + 1; i < arrayLength; ++i)
                     {
                         Assert.IsTrue(array[i] > array[pivot]);
+                    }
+                }
+            }
+            //Console.ReadLine();
+        }
+
+        [TestMethod]
+        public void PartitionTestSubset()
+        {
+            int[] testArrayLengths = new int[] { 1, 10, 100, 999 };
+            int[] seeds = new int[] { 1, 54353, 6363, 756757 };
+            /*
+                Instantiate and seed random number generator within
+                method to keep array elements consistent between tests
+            */
+            Random arrayNumberGenerator = new Random(2017);
+
+            foreach (int arrayLength in testArrayLengths)
+            {
+                foreach (int seed in seeds)
+                {
+                    for (int start = 0; start < arrayLength; ++start)
+                    {
+                        for (int end = start + 1; end < arrayLength; ++end)
+                        {
+                            Partitioning.SetSeed(seed);
+                            //generate random array of given lenth
+                            int[] array = new int[arrayLength];
+                            for (int i = 0; i < arrayLength; ++i)
+                            {
+                                array[i] = arrayNumberGenerator.Next();
+                            }
+
+                            int pivot = Partitioning.Partion<int>(array, start, end);
+
+                            for (int i = start; i < pivot; ++i)
+                            {
+                                Assert.IsTrue(array[i] <= array[pivot]);
+                            }
+
+                            for (int i = pivot + 1; i < end; ++i)
+                            {
+                                Assert.IsTrue(array[i] > array[pivot]);
+                            } 
+                        } 
                     }
                 }
             }
