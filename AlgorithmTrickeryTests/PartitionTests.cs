@@ -64,9 +64,9 @@ namespace AlgorithmTrickeryTests
             {
                 foreach (int seed in seeds)
                 {
-                    for (int start = 0; start < arrayLength; ++start)
+                    for (int start = 0; start < arrayLength/4; ++start)
                     {
-                        for (int end = start + 1; end < arrayLength; ++end)
+                        for (int end = arrayLength - arrayLength/4; end < arrayLength; ++end)
                         {
                             Partitioning.SetSeed(seed);
                             //generate random array of given lenth

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AlgorithmTrickery
 {
-    public class Partitioning
+    public static class Partitioning
     {
         static Random pivotSelector = new Random(DateTime.Now.Millisecond);
 
@@ -32,7 +33,7 @@ namespace AlgorithmTrickery
 
                 T pivotVal = array[pivot];
 
-                //put pivot at end
+                //put pivot at start
                 T temp = array[start];
                 array[start] = array[pivot];
                 array[pivot] = temp;
@@ -86,12 +87,13 @@ namespace AlgorithmTrickery
                 temp = array[start];
                 array[start] = array[q];
                 array[q] = temp;
-                
+
+                Debug.Assert(q >= start);
 
                 return q;
             }
 
-            return 0;
+            return start;
         }
 
         public static void SetSeed(int seed)
