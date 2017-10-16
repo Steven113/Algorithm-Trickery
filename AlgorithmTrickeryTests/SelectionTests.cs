@@ -5,7 +5,7 @@ using AlgorithmTrickery;
 namespace AlgorithmTrickeryTests
 {
     [TestClass]
-    public class SelectionTest
+    public class SelectionTests
     {
         [TestMethod]
         public void TestSelection()
