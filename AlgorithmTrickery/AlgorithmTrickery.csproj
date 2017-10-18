@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Factorial.cs" />
     <Compile Include="Partitioning.cs" />
+    <Compile Include="PermutationEnumerator.cs" />
     <Compile Include="Permutations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selection.cs" />

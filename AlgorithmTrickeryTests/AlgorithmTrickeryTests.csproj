@@ -57,6 +57,7 @@
     <Compile Include="SelectionTests.cs" />
     <Compile Include="PermutationTests.cs" />
     <Compile Include="StringMatchingTests.cs" />
+    <Compile Include="PermutationEnumeratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AlgorithmTrickery\AlgorithmTrickery.csproj">
