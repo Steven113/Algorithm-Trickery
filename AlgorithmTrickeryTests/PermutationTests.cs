@@ -55,8 +55,8 @@ namespace AlgorithmTrickeryTests
 
             foreach (int arrayLength in testArrayLengths)
             {
-                foreach (int seed in seeds)
-                {
+                //foreach (int seed in seeds)
+                //{
 
                 //generate random array of given lenth
                 int[] array = new int[arrayLength];
@@ -94,8 +94,33 @@ namespace AlgorithmTrickeryTests
                     int differences = ArraySimilarity(currentPermutation, previousPermutation);
 
                     Assert.IsTrue(differences > 0, $"Current permutation {string.Join(",", currentPermutation)}, Last Permutation {string.Join(", ", previousPermutation)}, differences = {differences}");
+                    
+                }
+
+                /*
+                    Create count of how many times a given value occurs at a given position
+                    If the permutation algorithm run correctly, each value occurs at each
+                    position in the array an equal number of times.
+                */
+                int[][] counts = new int[arrayLength][];
+                for (int row = 0; row< arrayLength; ++row)
+                {
+                    counts[row] = new int[arrayLength];
+                }
+
+                foreach(int[] permutation in permutations)
+                {
+                    for (int index = 0; index < permutation.Length; ++index)
+                    {
+                        ++counts[index][permutation[index] - 1];
                     }
                 }
+
+                for (int n = 0; n<arrayLength*arrayLength -1; ++n)
+                {
+                    Assert.AreEqual(counts[n / arrayLength][n % arrayLength], counts[(n+1) / arrayLength][(n+1) % arrayLength]);
+                }
+
             }
         }
 
